@@ -21,5 +21,6 @@ permalink: /about/
 아래의 연락처, 또는 [github issue](https://github.com/iamjaekim/iamjaekim.github.io/issues) 열어주시면, 연락드리겠습니다
 
 [email](mailto:jaekim92@outlook.com)
+
 [linkedin](https://www.linkedin.com/in/jwkim92/)
 
