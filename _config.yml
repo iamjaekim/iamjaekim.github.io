@@ -9,7 +9,7 @@ name: Jae Kim
 description: Infrastructure Engineer in Washington D.C.
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: "{{site.baseurl}}/images/self.jpeg"
+avatar: images/self.jpeg
 
 #
 # Flags below are optional
