@@ -11,7 +11,7 @@ tags: [terraform]
 ![terraform-logo](../images/terraform-color.svg){: width="100%" height="100%"}
 
 
-`안녕 테라폼?` 시리즈는 "나는 적어도 CLI로 클라우드에서 리소스 만져봤다" 하시는분들이 다음 과정으로 넘어가실 때 읽으실 때, 이해되기 쉽게 작성해보려 합니다.
+> `안녕 테라폼?` 시리즈는 "나는 적어도 CLI로 클라우드에서 리소스 만져봤다" 하시는분들이 다음 과정으로 넘어가실 때 읽으실 때, 이해되기 쉽게 작성해보려 합니다.
 
 [테라폼](https://www.terraform.io/intro/index.html)은 HashiCorp에서 만든 오픈소스 툴로 독자적인 HCL과 프로바이더의 결합으로 각종 리소스를 만드는데 사용하는 툴입니다.
 
