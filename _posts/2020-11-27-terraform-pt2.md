@@ -1,6 +1,7 @@
 ---
 layout: post
 title: terraform - provider
+tags: [terraform]
 ---
 
 안녕 테라폼?

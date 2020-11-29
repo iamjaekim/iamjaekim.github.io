@@ -1,6 +1,7 @@
 ---
 layout: post
 title: terraform - intro
+tags: [terraform]
 ---
 
 안녕 테라폼?

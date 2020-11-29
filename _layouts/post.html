@@ -6,6 +6,13 @@ layout: default
   <h1>{{ page.title }}</h1>
 
   <div class="entry">
+    {% if page.tags %}
+      {% for tag in page.tags %}
+        {% if site.data.tags contains tag %}
+          <span class="tag"> tags: {{ tag }}</span>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
     {{ content }}
   </div>
 
