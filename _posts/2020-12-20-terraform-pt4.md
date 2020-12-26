@@ -14,6 +14,7 @@ tags: [terraform]
 -  데이터는 원격으로 `GET` 쿼리를 실행후 받아오는 변수들을 저장을 합니다.
 -  로컬은 실행 환경에 귀속된 변수를 저장합니다.
 -  아웃풋은 만들어진 리소스의 값을 변수 저장후 외부 모듈등에서 사용가능하게 노출시켜줍니다.
+
 ---
 ## Data
 데이터에 대해 알아보겠습니다. 데이터의 기본은 `GET`쿼리입니다. 실제 존재하는 리소스에 대해서 `GET` 으로 해당 리소스에 대한 모든 데이터를 불러와 변수로 저장을 합니다. 데이터 선언과 사용은 밑과 같이 하게 됩니다. (저번 포스팅에서 예로 들었던, [`aws_vpc` 리소스 예시](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc)로 들어보겠습니다.)
@@ -34,6 +35,7 @@ resource "aws_subnet" "example" {
 
 데이터의 많은 use case가 있지만 가장 큰 장점은 다이나믹함 입니다.
 가령 AWS어카운트 하나에 vpc를 나눠서 서로 다른 운영환경을 구성한다면, id를 직접 쿼리 하기보단, 태그를 쿼리하여 변수를 저장한뒤, 필요시 Local변수로 변환저장 후, 테라폼 내부에서 개별적으로 사용이 가능하기 때문이입니다.
+
 ```terraform
 data "aws_vpcs" "prod-vpcs" {
   tags = {
@@ -68,6 +70,7 @@ resource "aws_subnet" "example" {
   tags              = local.tags
 }
 ```
+
 해당 코드블럭은, 현재 실행환경에 `tags`를 저장하는것입니다. 가령 일반 string뿐만 아니라, `data`역시 로컬변수에 저장이 가능하여, 잘 사용 한다면, 모든 configuration을 로컬에 저장한 뒤, 실제 리소스에선 로컬 변수에 저장된 값들로만 리소스를 만들수도 있습니다.
 
 많은 use case들중 유용히 쓰일경우중 하나가 [리소스들에 tag를 지정](https://www.terraform.io/docs/configuration/locals.html#when-to-use-local-values)할때 입니다. 각각의 리소스들의 일정함을 위해, 같은 포맷 또는 비슷한게 만들어진 값 사용을 추천하는데, 테라폼으로 태깅을 할 경우, 이 작업이 무척 쉬워지게 됩니다.
