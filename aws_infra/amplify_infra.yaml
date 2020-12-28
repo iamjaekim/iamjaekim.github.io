@@ -60,9 +60,9 @@ Resources:
   AmplifyBranch:
     Type: AWS::Amplify::Branch
     Properties:
-      BranchName: master
+      BranchName: deploy
       AppId: !GetAtt AmplifyApp.AppId
-      Description: Master Branch
+      Description: deploy Branch
       EnableAutoBuild: true
       Tags:
         - Key: Name
