@@ -69,11 +69,11 @@ aws cloudformation deploy --stack-name deploy  \
 AWSTemplateFormatVersion: 2010-09-09
 
 Parameters:
-GithubOAuthToken:
+  GithubOAuthToken:
     Type: String
     Description: Provide Github OAuth Token
     NoEcho: true
-GithubURL:
+  GithubURL:
     Type: String
     Description: Provide Github URL
 
@@ -136,7 +136,7 @@ Resources:
           - Key: Name
           Value: Jekyll
 Outputs:
-DefaultDomain:
+  DefaultDomain:
     Value: !GetAtt AmplifyApp.DefaultDomain
 ```
 
