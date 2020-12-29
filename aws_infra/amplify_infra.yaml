@@ -1,5 +1,11 @@
 AWSTemplateFormatVersion: 2010-09-09
 
+Parameters:
+  GithubOAuthToken:
+    Type: String
+    Description: Provide Github OAuth Token
+    NoEcho: true
+
 Resources:
   AmplifyRole:
     Type: AWS::IAM::Role
@@ -21,20 +27,14 @@ Resources:
               - Effect: Allow
                 Action: "amplify:*"
                 Resource: "*"
-        - PolicyName: GetSecret
-          PolicyDocument:
-            Version: 2012-10-17
-            Statement:
-              - Effect: Allow
-                Action: "secretsmanager:GetSecretValue"
-                Resource: "arn:aws:secretsmanager:us-east-1:101127657027:secret:amplify-github-token-kpOv92"
+
   AmplifyApp:
     Type: "AWS::Amplify::App"
     Properties:
       Name: Blog
       Repository: "https://github.com/iamjaekim/iamjaekim.github.io"
       Description: Jae Wook Kim Blog
-      AccessToken: "{{resolve:secretsmanager:amplify-github-token:SecretString:amplify-github}}"
+      AccessToken: !Ref GithubOAuthToken
       BuildSpec: |-
         version: 0.1
         frontend:
