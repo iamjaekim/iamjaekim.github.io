@@ -78,63 +78,63 @@ GithubURL:
     Description: Provide Github URL
 
 Resources:
-AmplifyRole:
-    Type: AWS::IAM::Role
-    Properties:
-    AssumeRolePolicyDocument:
-        Version: 2012-10-17
-        Statement:
-        - Effect: Allow
-            Principal:
-            Service:
-                - amplify.amazonaws.com
-            Action:
-            - sts:AssumeRole
-    Policies:
-        - PolicyName: Amplify
-        PolicyDocument:
-            Version: 2012-10-17
-            Statement:
-            - Effect: Allow
-                Action: "amplify:*"
-                Resource: "*"
-AmplifyApp:
-    Type: "AWS::Amplify::App"
-    Properties:
-    Name: Blog
-    Repository: !REF GithubURL
-    AccessToken: !REF GithubOAuthToken
-    BuildSpec: |-
-        version: 0.1
-        frontend:
-        phases:
-            preBuild:
-            commands:
-                - bundle install --path vendor/bundle
-            build:
-            commands:
-                - JEKYLL_ENV=production bundle exec jekyll build
-        artifacts:
-            baseDirectory: _site
-            files:
-            - '**/*'
-        cache:
-            paths:
-            - 'vendor/**/*'
-    Tags: # 태그 업데이트
-        - Key: Name
-        Value: Jekyll
-    IAMServiceRole: !GetAtt AmplifyRole.Arn
-AmplifyBranch:
-    Type: AWS::Amplify::Branch
-    Properties:
-    BranchName: master
-    AppId: !GetAtt AmplifyApp.AppId
-    Description: master Branch
-    EnableAutoBuild: true
-    Tags: # 태그 업데이트
-        - Key: Name
-        Value: Jekyll
+  AmplifyRole:
+      Type: AWS::IAM::Role
+      Properties:
+      AssumeRolePolicyDocument:
+          Version: 2012-10-17
+          Statement:
+          - Effect: Allow
+              Principal:
+              Service:
+                  - amplify.amazonaws.com
+              Action:
+              - sts:AssumeRole
+      Policies:
+          - PolicyName: Amplify
+          PolicyDocument:
+              Version: 2012-10-17
+              Statement:
+              - Effect: Allow
+                  Action: "amplify:*"
+                  Resource: "*"
+  AmplifyApp:
+      Type: "AWS::Amplify::App"
+      Properties:
+      Name: Blog
+      Repository: !REF GithubURL
+      AccessToken: !REF GithubOAuthToken
+      BuildSpec: |-
+          version: 0.1
+          frontend:
+          phases:
+              preBuild:
+              commands:
+                  - bundle install --path vendor/bundle
+              build:
+              commands:
+                  - JEKYLL_ENV=production bundle exec jekyll build
+          artifacts:
+              baseDirectory: _site
+              files:
+              - '**/*'
+          cache:
+              paths:
+              - 'vendor/**/*'
+      Tags: # 태그 업데이트
+          - Key: Name
+          Value: Jekyll
+      IAMServiceRole: !GetAtt AmplifyRole.Arn
+  AmplifyBranch:
+      Type: AWS::Amplify::Branch
+      Properties:
+      BranchName: master
+      AppId: !GetAtt AmplifyApp.AppId
+      Description: master Branch
+      EnableAutoBuild: true
+      Tags: # 태그 업데이트
+          - Key: Name
+          Value: Jekyll
 Outputs:
 DefaultDomain:
     Value: !GetAtt AmplifyApp.DefaultDomain
