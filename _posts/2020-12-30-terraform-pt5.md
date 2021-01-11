@@ -32,7 +32,7 @@ tags: [terraform]
 
 `./main.tf` 파일에서 모듈을 불러올 때엔, *`source`라는 파라미터*를 넘겨주어야 하며, 이 모듈이 정상적으로 작동하기 위해서는, 모듈에서 정의한 변수 (`variables.tf`)를 모두 파라미터로 넘겨주어야 모듈이 정상 작동을 하게 됩니다. 필요 파라미터를 넘겨주지 않을경우, *`terraform plan`과정에서 필수 변수 항목이 비었다고 에러메시지*를 밑과 비슷하게 띄우게 됩니다.
 
-![error-missing-variable](../images/2020-12-30-terraform-pt5/missing_varible.png){:class="img-responsive"}
+![error-missing-variable](../images/2020-12-30-terraform-pt5/missing_variable.png){:class="img-responsive"}
 
 `./main.tf` 파일에서 vpc-module에 대한 변수를 파라미터로 넘겨줄시에도, 변수 사용이 충분히 가능합니다. 데이터, 로컬, 또는 다른 아웃풋을 변수로 지정해 파라미너로 넘겨주면, 테라폼 실행시, 자체적으로 변수변환과정을 거친후 알맞은 값을 해당 변수로 사용하게 됩니다.**(Pro Tip: 테라폼에서 값을 받는것과 프로바이더의 validation은 별개입니다. 예를 들어, CIDR를 필수로 하는값에 string 또는 number를 넘겨주게되면 프로바이더 validation에 fail함으로, api 에러메시지가 나오게 됩니다. 헷갈리지 않게 꼭 확인하시기 바랍니다!)**
 
