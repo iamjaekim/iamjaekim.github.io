@@ -1,10 +1,10 @@
 ---
 layout: post
 title: terraform - Version 1.0 General Availability
-tags: [terraform, translation]
+tags: [terraform, translation, hashicorp]
 ---
 
-톄라폼 v1.0 릴리스
+테라폼 v1.0 GA 릴리스
 
 안녕하세요, 김재욱입니다. 오늘의 주제는 테라폼 1.0에 대한 이야기 입니다.
 본 글은 해시코프의 블로그 글의 대한 키 포인트에 대한 의역입니다.
