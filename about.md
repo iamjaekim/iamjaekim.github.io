@@ -6,15 +6,21 @@ permalink: /about/
 
 안녕하세요! 김재욱이라고 합니다. 제 블로그에 오신걸 환영합니다!
 
-저는 퍼블릭 클라우드 엔지니어로 미국 Washington D.C.에 위치한 회사에 다니고 있습니다.
+저는 클라우드 데브옵스 엔지니어로, 미국 샌프란시스코에 위치한 회사에 다니고 있습니다.
 
 
 ### 주 포커스
 
+- DevOps
+- Typescript
 - Infrastructure as Code
+  - Terraform
+  - CDK
 - CI/CD
-- 자동화
-- 퍼블릭 클라우드
+- Automation
+- Public Cloud 
+  - Amazon Web Services (AWS)
+  - Microsoft Azure
 
 ### Contact me
 
