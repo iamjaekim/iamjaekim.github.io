@@ -6,7 +6,7 @@
 name: Jae Kim
 
 # Short bio or description (displayed in the header)
-description: Infrastructure Engineer in Washington D.C.
+description: DevOps Engineer in Washington D.C. USA
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: images/self.jpeg
@@ -79,7 +79,7 @@ gems:
   - jekyll-paginate # paginator
   - jekyll-seo-tag
 
-paginate: 5
+paginate: 10
 paginate_path: '/page/:num/'
 
 # Exclude these files from your production _site
