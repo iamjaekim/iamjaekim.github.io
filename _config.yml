@@ -78,7 +78,11 @@ gems:
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   - jekyll-paginate # paginator
   - jekyll-seo-tag
+  - jekyll-sitemap
 
+whitelist:
+  - jekyll-sitemap
+  
 paginate: 10
 paginate_path: '/page/:num/'
 
