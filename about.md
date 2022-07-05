@@ -29,4 +29,4 @@ permalink: /about/
 
 [email](mailto:jaekim92@outlook.com)
 
-[linkedin](https://www.linkedin.com/in/jwkim92/)
+[linkedin](https://www.linkedin.com/in/iamjaekim/)
