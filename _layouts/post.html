@@ -6,19 +6,13 @@ layout: default
   <h1>{{ page.title }}</h1>
 
   <div class="entry">
-    tags: {% if page.tags %}
-      {% for tag in page.tags %}
-        {% if site.data.tags contains tag %}
-          <span class="tag">{{ tag }}</span>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
+    {% include tags.html %}
+
     {{ content }}
   </div>
 
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>
+  {% include date.html %}
+  {% include author.html %}
 
   {% include disqus.html %}
 </article>

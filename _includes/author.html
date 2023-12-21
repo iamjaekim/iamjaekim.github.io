@@ -1,0 +1,10 @@
+{% assign author = site[page.author] %}
+{% if author %}
+<div class="author">
+    Written by {{ author.name }}
+</div>
+{% else %}
+<div class="author">
+    Written by Jae Wook Kim
+</div>
+{% endif %}
