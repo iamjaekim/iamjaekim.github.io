@@ -1,7 +1,13 @@
 ---
 layout: post
 title: Host Jekyll Site with AWS Amplify
-tags: [aws, amplify, jekyll]
+tags:
+  - amplify
+  - aws
+  - jekyll
+  - infrastructure-as-code
+slug: host-jekyll-site-aws-amplify
+description: hosting jekyll site on amazon amplify platform
 ---
 
 안녕 AWS Amplify?

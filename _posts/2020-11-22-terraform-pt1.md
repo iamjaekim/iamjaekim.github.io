@@ -1,7 +1,11 @@
 ---
 layout: post
 title: terraform - intro
-tags: [terraform]
+tags:
+    - terraform
+    - infrastructure-as-code
+slug: terraform-intro
+description: part 1 - intro to terraform
 ---
 
 안녕 테라폼?

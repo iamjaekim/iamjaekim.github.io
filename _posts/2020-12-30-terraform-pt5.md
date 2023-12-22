@@ -1,7 +1,11 @@
 ---
 layout: post
 title: terraform - module
-tags: [terraform]
+tags:
+    - terraform
+    - infrastructure-as-code
+slug: terraform-module
+description: part 5 - terraform module
 ---
 
 안녕 테라폼?
