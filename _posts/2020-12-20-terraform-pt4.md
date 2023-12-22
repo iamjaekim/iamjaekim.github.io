@@ -1,7 +1,11 @@
 ---
 layout: post
 title: terraform - data, local and output
-tags: [terraform]
+tags:
+  - terraform
+  - infrastructure-as-code
+description: part 4 - terraform data local and output
+slug: terraform-data-local-output
 ---
 
 안녕 테라폼?

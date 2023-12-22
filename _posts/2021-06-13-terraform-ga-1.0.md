@@ -1,7 +1,13 @@
 ---
 layout: post
 title: terraform - Version 1.0 General Availability
-tags: [terraform, translation, hashicorp]
+tags:
+    - hashicorp
+    - terraform
+    - translation
+    - infrastructure-as-code
+slug: terraform-version-1-0-general-availability
+description: terraform verision 1.0 release
 ---
 
 테라폼 v1.0 GA 릴리스

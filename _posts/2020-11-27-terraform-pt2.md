@@ -1,7 +1,11 @@
 ---
 layout: post
 title: terraform - provider
-tags: [terraform]
+tags:
+  - terraform
+  - infrastructure-as-code
+slug: terraform-provider
+description: part 2 - terraform providers
 ---
 
 안녕 테라폼?

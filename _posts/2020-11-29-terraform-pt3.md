@@ -1,7 +1,11 @@
 ---
 layout: post
 title: terraform - resource
-tags: [terraform]
+tags:
+  - terraform
+  - infrastructure-as-code
+slug: terraform-resource
+description: part 3 - terraform resources
 ---
 
 안녕 테라폼?

@@ -10,6 +10,7 @@ description: DevOps Engineer in Washington D.C. USA
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: images/default.svg
+timezone: America/New_York
 
 #
 # Flags below are optional
@@ -73,11 +74,12 @@ sass:
   style: compressed # You might prefer to minify using :compressed
 
 # Use the following plug-ins
-gems:
+plugins:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   - jekyll-paginate # paginator
   - jekyll-seo-tag
+  - jekyll-last-modified-at
 
 paginate: 10
 paginate_path: '/page/:num/'
