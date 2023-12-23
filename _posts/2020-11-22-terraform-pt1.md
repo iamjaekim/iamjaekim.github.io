@@ -6,6 +6,7 @@ tags:
     - infrastructure-as-code
 slug: terraform-intro
 description: part 1 - intro to terraform
+lastmod: 2023-12-23T22:04:00.128Z
 ---
 
 안녕 테라폼?
@@ -13,7 +14,6 @@ description: part 1 - intro to terraform
 안녕하세요, 김재욱입니다. 이 블로그의 첫 글로, 요즘 많이 쓰고 있는 테라폼에 대해 소개 해보려고 합니다.
 
 ![terraform-logo](../images/terraform-color.svg){: width="100%" height="100%"}
-
 
 > `안녕 테라폼?` 시리즈는 "나는 적어도 CLI로 클라우드에서 리소스 만져봤다" 하시는분들이 다음 과정으로 넘어가실 때 읽으시면, 이해되기 쉽게 작성해보려 합니다.
 
@@ -30,11 +30,13 @@ description: part 1 - intro to terraform
 > brew install terraform@0.12  # 0.12.29 버전 설치
 
 테라폼의 수많은 장점들중, 몇가지 손에 꼽자면
+
 - 코드에 정의된 설정와 실제 리소스에 정의 된 값의 변화를 트랙킹 할수 있다.
 - Single source of truth를 정할수 있으며, 일반적인 어플리케이션의 코드처럼 관리가 가능하다.
 - 같은 리소스를 최소한의 노력으로 다시 만들 수 있다.
 
 이러한 장점을 가지고 있지만, 물론 단점 역시 존재한다.
+
 - state이란 파일이 존재하며, 이 파일엔 infrastructure 설정값이 clear text로 저장되어 있다.
 - diff를 찾을 때 (장점1), state파일을 이용해 찾으며, state 파일에 문제가 있다면, 또는 여러버전이 존재 한다면 테라폼은 자신의 일을 제대로 수행 할수 없다.
 - 같은 리소스를 조금의 노력으로 만들 수 있다보니, 동일한 리소스를 많이 사용하게 되면 billing에 즉각적으로 반영된다.

@@ -8,6 +8,7 @@ tags:
   - infrastructure-as-code
 slug: host-jekyll-site-aws-amplify
 description: hosting jekyll site on amazon amplify platform
+lastmod: 2023-12-23T22:03:38.250Z
 ---
 
 안녕 AWS Amplify?

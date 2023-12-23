@@ -42,11 +42,6 @@
           "title": "Categories",
           "name": "categories",
           "type": "categories"
-        },
-        {
-          "title": "layout",
-          "name": "layout",
-          "type": "string"
         }
       ]
     }
@@ -59,5 +54,6 @@
       "title": "posts",
       "path": "[[workspace]]/_posts"
     }
-  ]
+  ],
+  "frontMatter.content.autoUpdateDate": true
 }

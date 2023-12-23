@@ -6,6 +6,7 @@ tags:
   - infrastructure-as-code
 slug: terraform-provider
 description: part 2 - terraform providers
+lastmod: 2023-12-23T22:03:35.765Z
 ---
 
 안녕 테라폼?

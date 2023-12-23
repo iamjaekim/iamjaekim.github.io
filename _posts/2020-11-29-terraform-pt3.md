@@ -6,6 +6,7 @@ tags:
   - infrastructure-as-code
 slug: terraform-resource
 description: part 3 - terraform resources
+lastmod: 2023-12-23T22:03:37.424Z
 ---
 
 안녕 테라폼?

@@ -6,6 +6,7 @@ tags:
     - infrastructure-as-code
 slug: terraform-module
 description: part 5 - terraform module
+lastmod: 2023-12-23T22:03:38.928Z
 ---
 
 안녕 테라폼?
