@@ -8,6 +8,7 @@ tags:
     - infrastructure-as-code
 slug: terraform-version-1-0-general-availability
 description: terraform verision 1.0 release
+lastmod: 2023-12-23T22:03:39.643Z
 ---
 
 테라폼 v1.0 GA 릴리스

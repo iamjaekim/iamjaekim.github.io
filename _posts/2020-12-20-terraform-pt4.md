@@ -6,6 +6,7 @@ tags:
   - infrastructure-as-code
 description: part 4 - terraform data local and output
 slug: terraform-data-local-output
+lastmod: 2023-12-23T22:03:36.691Z
 ---
 
 안녕 테라폼?
