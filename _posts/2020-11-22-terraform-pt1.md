@@ -1,12 +1,20 @@
 ---
 layout: post
-title: terraform - intro
+title: Terraform - Intro
+description: Terraform 입문 가이드. Infrastructure as Code의 개념과 Terraform이 무엇인지, 왜 사용하는지 소개하는 시리즈 1편.
+date: 2020-11-22T00:00:00.000Z
+lastmod: 2026-02-23T05:42:07.046Z
+image: /images/default.svg
 tags:
-    - terraform
-    - infrastructure-as-code
-slug: terraform-intro
-description: part 1 - intro to terraform
-lastmod: 2023-12-23T22:04:00.128Z
+  - terraform
+  - infrastructure-as-code
+keywords:
+  - Terraform
+  - Infrastructure as Code
+  - IaC
+  - HashiCorp
+  - DevOps
+comments: true
 ---
 
 안녕 테라폼?

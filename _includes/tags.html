@@ -1,7 +1,7 @@
-tags: {% if page.tags %}
+{% if page.tags.size > 0 %}
+<div class="post-tags">
 {% for tag in page.tags %}
-{% if site.data.tags contains tag %}
-<span class="tag">{{ tag }}</span>
-{% endif %}
+<span class="tag-pill">{{ tag }}</span>
 {% endfor %}
+</div>
 {% endif %}

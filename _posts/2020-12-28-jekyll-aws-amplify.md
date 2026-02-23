@@ -1,14 +1,22 @@
 ---
 layout: post
 title: Host Jekyll Site with AWS Amplify
+description: GitHub Pages 대신 AWS Amplify로 Jekyll 블로그를 배포하는 방법. Amplify 설정부터 자동 배포 파이프라인 구성까지 단계별 가이드.
+date: 2020-12-28T00:00:00.000Z
+lastmod: 2026-02-23T05:42:07.072Z
+image: /images/default.svg
 tags:
   - amplify
   - aws
   - jekyll
   - infrastructure-as-code
-slug: host-jekyll-site-aws-amplify
-description: hosting jekyll site on amazon amplify platform
-lastmod: 2023-12-23T22:03:38.250Z
+keywords:
+  - AWS Amplify
+  - Jekyll
+  - Static Site Hosting
+  - GitHub Pages alternative
+  - CI/CD
+comments: true
 ---
 
 안녕 AWS Amplify?

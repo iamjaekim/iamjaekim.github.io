@@ -1,12 +1,20 @@
 ---
 layout: post
-title: terraform - data, local and output
+title: Terraform - Data, Local and Output
+description: Terraform의 Data Source, Local 변수, Output 값을 활용하여 더 유연하고 재사용 가능한 인프라 코드를 작성하는 방법. 시리즈 4편.
+date: 2020-12-20T00:00:00.000Z
+lastmod: 2026-02-23T05:42:07.066Z
+image: /images/default.svg
 tags:
   - terraform
   - infrastructure-as-code
-description: part 4 - terraform data local and output
-slug: terraform-data-local-output
-lastmod: 2023-12-23T22:03:36.691Z
+keywords:
+  - Terraform Data Source
+  - Terraform Locals
+  - Terraform Output
+  - Infrastructure as Code
+  - HCL
+comments: true
 ---
 
 안녕 테라폼?

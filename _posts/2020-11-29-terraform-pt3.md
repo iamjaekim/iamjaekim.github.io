@@ -1,12 +1,19 @@
 ---
 layout: post
-title: terraform - resource
+title: Terraform - Resource
+description: Terraform Resource 블록으로 클라우드 인프라를 정의하는 방법. AWS VPC, EC2 등 실제 리소스 예시를 통해 알아보는 시리즈 3편.
+date: 2020-11-29T00:00:00.000Z
+lastmod: 2026-02-23T05:42:07.061Z
+image: /images/default.svg
 tags:
   - terraform
   - infrastructure-as-code
-slug: terraform-resource
-description: part 3 - terraform resources
-lastmod: 2023-12-23T22:03:37.424Z
+keywords:
+  - Terraform Resource
+  - AWS VPC
+  - Infrastructure as Code
+  - HCL
+comments: true
 ---
 
 안녕 테라폼?

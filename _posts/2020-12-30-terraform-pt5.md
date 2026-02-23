@@ -1,12 +1,20 @@
 ---
 layout: post
-title: terraform - module
+title: Terraform - Module
+description: Terraform Module을 사용해 인프라 코드를 재사용 가능한 단위로 구성하는 방법. 공식 모듈 레지스트리 활용법 포함. 시리즈 5편.
+date: 2020-12-30T00:00:00.000Z
+lastmod: 2026-02-23T05:42:07.076Z
+image: /images/default.svg
 tags:
-    - terraform
-    - infrastructure-as-code
-slug: terraform-module
-description: part 5 - terraform module
-lastmod: 2023-12-23T22:03:38.928Z
+  - terraform
+  - infrastructure-as-code
+keywords:
+  - Terraform Module
+  - Terraform Registry
+  - Infrastructure as Code
+  - Reusable Infrastructure
+  - HCL
+comments: true
 ---
 
 안녕 테라폼?

@@ -1,12 +1,19 @@
 ---
 layout: post
-title: terraform - provider
+title: Terraform - Provider
+description: Terraform Provider란 무엇인지, AWS Provider를 예시로 어떻게 설정하고 사용하는지 알아보는 시리즈 2편.
+date: 2020-11-27T00:00:00.000Z
+lastmod: 2026-02-23T05:42:07.055Z
+image: /images/default.svg
 tags:
   - terraform
   - infrastructure-as-code
-slug: terraform-provider
-description: part 2 - terraform providers
-lastmod: 2023-12-23T22:03:35.765Z
+keywords:
+  - Terraform Provider
+  - AWS Provider
+  - HashiCorp
+  - Infrastructure as Code
+comments: true
 ---
 
 안녕 테라폼?

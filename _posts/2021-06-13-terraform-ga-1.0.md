@@ -1,14 +1,22 @@
 ---
 layout: post
-title: terraform - Version 1.0 General Availability
+title: Terraform - Version 1.0 General Availability
+description: HashiCorp Terraform 1.0 정식 출시 소식. v1.0에서 달라진 점, 안정성 보장 약속, 그리고 업그레이드 가이드 요약 번역.
+date: 2021-06-13T00:00:00.000Z
+lastmod: 2026-02-23T05:42:07.080Z
+image: /images/default.svg
 tags:
-    - hashicorp
-    - terraform
-    - translation
-    - infrastructure-as-code
-slug: terraform-version-1-0-general-availability
-description: terraform verision 1.0 release
-lastmod: 2023-12-23T22:03:39.643Z
+  - hashicorp
+  - terraform
+  - translation
+  - infrastructure-as-code
+keywords:
+  - Terraform 1.0
+  - HashiCorp
+  - General Availability
+  - Infrastructure as Code
+  - Release Notes
+comments: true
 ---
 
 테라폼 v1.0 GA 릴리스
