@@ -1,27 +1,33 @@
 ---
 layout: page
-title: Who Am I
+title: About Jaewook Kim - Engineering Productivity Engineer
 permalink: /about/
+description: "Learn more about Jae Wook Kim, an Engineering Productivity Engineer specializing in CI/CD, DevOps, and Cloud Infrastructure."
 ---
 
-안녕하세요! 김재욱이라고 합니다. 제 블로그에 오신걸 환영합니다!
+Hello! My name is Jae Wook Kim. Welcome to my blog!
 
-저는 엔지니어링 프로덕티비니 엔지니어로, 미국 캘리포니아주 샌디에이고에 위치한 회사에 다니고 있습니다.
+I am an Engineering Productivity Engineer with a strong background in software development and cloud infrastructure. I am currently working at a company located in San Diego, California, USA. I am passionate about building scalable and efficient systems that enhance developer productivity and streamline workflows.
 
-![self](../images/self.jpeg){: width="30%" height="30%"}
+![Photo of Jaewook Kim](../images/self.jpeg){: width="30%" height="30%"}
 
-### 주 포커스
+### Professional Experience in Engineering Productivity
 
-- CI/CD
-- Github Actions
-- Infrastructure as Code
-- Public Cloud
-  - Amazon Web Services (AWS)
-  - Microsoft Azure
+- **Engineering Productivity Engineer**  
+  - Expertise in CI/CD pipelines, automation, and developer tools.  
+  - Extensive experience with cloud platforms such as AWS and Microsoft Azure.  
+  - Skilled in Infrastructure as Code (IaC) using tools like Terraform and AWS CDK.  
+
+### Skills in Software Development and Cloud Infrastructure
+
+- **Programming Languages**: Python, JavaScript, TypeScript  
+- **Cloud Platforms**: AWS, Microsoft Azure  
+- **DevOps Tools**: GitHub Actions, Jenkins, Docker, Kubernetes  
+- **Other Skills**: Agile methodologies, Test Automation, Monitoring & Logging
 
 ### Contact me
 
-아래의 연락처, 또는 [github issue](https://github.com/iamjaekim/iamjaekim.github.io/issues) 열어주시면, 연락드리겠습니다
+Feel free to reach out via the following contact methods, or open a [GitHub issue](https://github.com/iamjaekim/iamjaekim.github.io/issues), and I will get back to you.
 
 [email](mailto:jaekim92@outlook.com)
 

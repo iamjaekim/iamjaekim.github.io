@@ -19,16 +19,6 @@
 
     <!-- RSS -->
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml">
-
-    <!-- Dark Mode Init (prevent flash) -->
-    <script>
-      (function() {
-        var theme = localStorage.getItem('theme');
-        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
-      })();
-    </script>
   </head>
 
   <body>
@@ -50,12 +40,38 @@
           <a href="{{ site.baseurl }}/" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
           <a href="{{ site.baseurl }}/about" {% if page.url == '/about/' %}class="active"{% endif %}>About</a>
           <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">
-            <span class="icon-moon">🌙</span>
-            <span class="icon-sun">☀️</span>
+            <span class="theme-toggle-text">Dark Mode</span>
           </button>
         </nav>
       </div>
     </header>
+
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.querySelector('.theme-toggle .theme-toggle-text').textContent = 'Light Mode';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.querySelector('.theme-toggle .theme-toggle-text').textContent = 'Dark Mode';
+        }
+      })();
+
+      function toggleTheme() {
+        var html = document.documentElement;
+        var current = html.getAttribute('data-theme');
+        if (current === 'dark') {
+          html.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+          document.querySelector('.theme-toggle .theme-toggle-text').textContent = 'Dark Mode';
+        } else {
+          html.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          document.querySelector('.theme-toggle .theme-toggle-text').textContent = 'Light Mode';
+        }
+      }
+    </script>
 
     <!-- Main Content -->
     <main class="site-content" role="main">
@@ -96,16 +112,5 @@
         </div>
       </div>
     </footer>
-
-    <!-- Dark Mode Toggle Script -->
-    <script>
-      function toggleTheme() {
-        var html = document.documentElement;
-        var current = html.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      }
-    </script>
   </body>
 </html>

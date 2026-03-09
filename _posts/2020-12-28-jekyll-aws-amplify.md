@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Host Jekyll Site with AWS Amplify
-description: GitHub Pages 대신 AWS Amplify로 Jekyll 블로그를 배포하는 방법. Amplify 설정부터 자동 배포 파이프라인 구성까지 단계별 가이드.
+description: A step-by-step guide to deploying your Jekyll blog with AWS Amplify instead of GitHub Pages — from Amplify setup to automated deployment pipeline.
 date: 2020-12-28T00:00:00.000Z
-lastmod: 2026-02-23T05:42:07.072Z
+lastmod: 2026-03-01T19:29:57.318Z
 image: /images/default.svg
 tags:
   - amplify
@@ -19,68 +19,73 @@ keywords:
 comments: true
 ---
 
-안녕 AWS Amplify?
+## Hello, AWS Amplify!
 
-안녕하세요, 김재욱입니다. 오늘의 주제는 Hosting Jekyll Site with AWS Amplify ([AWS Amplify - 앰플리파이](https://aws.amazon.com/amplify/?nc=sn&loc=0) 로 [Jekyll - 지킬](https://jekyllrb.com/) 호스팅) 하기 입니다.
+Hi, I'm Jaewook Kim. Today's topic is hosting a Jekyll site with [AWS Amplify](https://aws.amazon.com/amplify/?nc=sn&loc=0).
 
-> 본 글은 "나는 적어도 CLI로 클라우드에서 리소스 만져봤다" 하시는 분들을 위주로 작성 되었습니다.
+> This post is written for those who have at least some hands-on experience creating cloud resources via CLI.
 
-현재 읽고 계신 이 블로그는 지킬을 베이스로 만들어진 정적 사이트 (Static site)이며 깃헙페이지에 호스팅이 되어 있는데요, 오늘의 글에서 이 블로그를 AWS Amplify에 호스팅을 해보도록 하겠습니다.
+This blog is a static site built on [Jekyll](https://jekyllrb.com/) and currently hosted on GitHub Pages. In this post, we'll walk through deploying it to AWS Amplify instead.
 
-시작 전 필수적으로 필요한게 있습니다, 없을시 만들어 주세요.
-- AWS CLI 설정
-- 깃헙 계정 및 지킬코드베이스
-  - Amplify가 리포지토리 엑세스할 수 있도록 OAuthToken이 필요합니다.
+Before we begin, make sure you have the following ready:
+- AWS CLI configured
+- A GitHub account with a Jekyll codebase
+  - An OAuthToken is required so Amplify can access your repository.
 
-이번 글에선, **과금**이 되는 리소스가 만들어지니, 따라하기 완료 후 삭제를 원하실경우 삭제하시고, 필요할때 다시 같은 템플렛을 사용하여 만드실수 있습니다.
+**Note:** This guide creates **billable** AWS resources. If you're just following along for learning purposes, make sure to delete the resources afterwards. You can always recreate them using the same template.
 
 ---
 
-### Github OAuth Token 만들기
-Github OAuthToken이 배포과정에서 필요로 하게 됩니다.
+### Creating a GitHub OAuth Token
 
-Amplify가 만들어지면서 깃헙에 Deploy Key를 만들어, 배포에 필요권한들을 상속받아 사용되게 됩니다. 이 Deploy Key를 만들기 위해, Personal Access Token (개인 사용자 토큰)이 필요하게 됩니다.
+A GitHub OAuthToken is required during the deployment process.
 
-[Personal Access Token](https://github.com/settings/tokens)을 만드는 방법은, Github 로그인 후 [링크 클릭](https://github.com/settings/tokens) 또는 오른쪽 상단 아이콘을 눌러, Settings로 들어간후, 왼쪽 패널의 Developer settings로 들어간뒤 Personal Access Token 메뉴를 누르시면 됩니다. 접속 후 Generate New Token 을 누른 뒤, Note 적어주시고 밑 이미지처럼 권한부여를 해주시면 됩니다.
+When Amplify is set up, it creates a Deploy Key on GitHub to inherit the necessary permissions for deployment. To create that Deploy Key, a Personal Access Token is needed.
 
-> 만들어진 키는 **한번** 밖에 보여지지 않으니, 잘 적어 두시길 바랍니다! 혹시 못 적으셨으면, 방금 만든 키를 삭제 후 다시 만들어 주시길 바랍니다.
+To create a [Personal Access Token](https://github.com/settings/tokens): log in to GitHub, then click the link or navigate via your profile icon in the top right → Settings → Developer Settings → Personal Access Tokens → Generate New Token. Add a note and grant the permissions shown in the image below.
+
+> The generated token is only shown **once** — make sure to save it! If you missed it, delete the token and generate a new one.
 
 ![pat access gif](../images/2020-12-28-jekyll-aws-amplify/pat.gif){: width="100%" height="100%"}
 ![pat access config](../images/2020-12-28-jekyll-aws-amplify/pat.png){: width="100%" height="100%"}
 
 ---
 
-### AWS 리소스 배포
+### Deploying AWS Resources
 
-예시로 적힌 아래의 yaml파일을 복사하여 로컬에 `amplify_infra.yaml`로 저장후, CLI로 배포를 해보겠습니다.
-배포의 전 과정은, CLI 또는 [AWS Console](https://console.aws.amazon.com/cloudformation/home)에서 확인 하실수 있습니다.
+Copy the YAML file below, save it locally as `amplify_infra.yaml`, and deploy it via CLI.
+You can monitor the entire deployment process via CLI or through the [AWS Console](https://console.aws.amazon.com/cloudformation/home).
 
-해당 [클라우드포메이션](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Amplify.html)으로 만들어지는 3가지 리소스는:
-- IAM Role (과금없음)
-  - 해당 롤은 Amplify앱에 연결 시켜줄 서비스Role입니다.
-- Amplify App (과금)
-  - Amplify 설정정보들이 담겨져 있습니다. 자세한 사항은 클라우드포메이션 다큐먼트를 참조 부탁드립니다.
-  - BuildSpec 부분이 Amplify가 사용하는 코드 빌드 순서입니다.
-    - 프리빌드 과정 : Gemfile에 나열된 디펜던시 설치
-    - 빌드 과정    : 지킬 코드 빌드
-    - 아티팩트 과정 : 빌드후 파일 이동경로
-    - 캐쉬 과정    : 프리빌드 및 빌드과정 캐쉬저장 (빌드시간을 줄여줌으로, 과금 되는 시간을 줄여줍니다)
-- Amplify Branch (과금없음)
-  - 깃헙에서 불러올 브랜치 설정입니다. 꼭 마스터브랜치일 필요는 없으며, 멀티 브랜치 설정도 가능합니다.
+The [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Amplify.html) template creates 3 resources:
+- **IAM Role** (no charge)
+  - A service role attached to the Amplify app.
+- **Amplify App** (billable)
+  - Contains all Amplify configuration. See the CloudFormation docs for details.
+  - The `BuildSpec` section defines the build order:
+    - Pre-build: Install dependencies listed in Gemfile
+    - Build: Build the Jekyll site
+    - Artifacts: Output directory after build
+    - Cache: Caches the pre-build/build steps to reduce build time (and billing)
+- **Amplify Branch** (no charge)
+  - Configures which GitHub branch to pull from. Doesn't have to be `main` — multi-branch setups are supported.
 
 ```bash
-## Cloudformation 만들기
-## 약 3-5분
-aws cloudformation deploy --stack-name deploy  \
---template-file ./amplify_infra.yaml \
---capabilities CAPABILITY_NAMED_IAM \
---parameter-overrides GithubOAuthToken=깃헙토큰 GithubURL=깃헙주소
+# Deploy CloudFormation stack (~3-5 minutes)
+aws cloudformation deploy \
+  --stack-name deploy \
+  --template-file ./amplify_infra.yaml \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --parameter-overrides \
+    GithubOAuthToken=YOUR_GITHUB_TOKEN \
+    GithubURL=YOUR_GITHUB_URL
 ```
 
 ![deploy gif](../images/2020-12-28-jekyll-aws-amplify/deploy.gif){: width="100%" height="100%"}
 
+<a href="/aws_infra/amplify_infra.yaml" download="amplify_infra.yaml" class="download-btn">⬇ Download amplify_infra.yaml</a>
+
 ```yaml
-# 필수 yaml 파일. amplify_infra.yaml로 저장해주세요
+# Required YAML file — save as amplify_infra.yaml
 AWSTemplateFormatVersion: 2010-09-09
 
 Parameters:
@@ -125,7 +130,7 @@ Resources:
           phases:
               preBuild:
               commands:
-                  - bundle install --path vendor/bundle
+                  - bundle config set --local path 'vendor/bundle' && bundle install
               build:
               commands:
                   - JEKYLL_ENV=production bundle exec jekyll build
@@ -136,18 +141,18 @@ Resources:
           cache:
               paths:
               - 'vendor/**/*'
-      Tags: # 태그 업데이트
+      Tags:
           - Key: Name
           Value: Jekyll
       IAMServiceRole: !GetAtt AmplifyRole.Arn
   AmplifyBranch:
       Type: AWS::Amplify::Branch
       Properties:
-      BranchName: master
+      BranchName: main
       AppId: !GetAtt AmplifyApp.AppId
-      Description: master Branch
+      Description: main Branch
       EnableAutoBuild: true
-      Tags: # 태그 업데이트
+      Tags:
           - Key: Name
           Value: Jekyll
 Outputs:
@@ -157,9 +162,9 @@ Outputs:
 
 ---
 
-### Amplify 앱 접속
+### Accessing the Amplify App
 
-Amplify로 만들어진 앱은 AWS에서 접속 URL을 만들어 줍니다. 해당 URL은 스택 아웃풋으로 노출이 되어 있으며 밑 CLI로 쿼리 해볼수 있습니다. 또는, AWS Console로 접속해서 AWS Amplify로 메뉴로 이동 한 뒤, 확인 가능합니다.
+Amplify generates a URL for your deployed app. This URL is exposed as a stack output and can be queried with the CLI below, or found in the AWS Console under the AWS Amplify section.
 
 ```bash
 aws cloudformation describe-stacks --stack-name deploy --query 'Stacks[*].Outputs[*].OutputValue'
@@ -167,16 +172,17 @@ aws cloudformation describe-stacks --stack-name deploy --query 'Stacks[*].Output
 
 ---
 
-### AWS 리소스 삭제
+### Deleting AWS Resources
 
-글 초반에 설명드렸듯, AWS Amplify는 **과금이 되는 서비스** 입니다. 즉, 실 서비스가 필요한 앱이 아니다, 필요가 없다, 또는 방금 만드신 리소스를 그냥 삭제하고 싶으시다면, 밑 CLI로 한꺼번에 다 삭제 가능합니다.
+As mentioned earlier, AWS Amplify is a **billable service**. If this was just for learning, you no longer need it, or you'd simply like to clean up — you can delete all the resources at once with the CLI below.
 
 ```bash
-## Cloudformation 지우기
-aws cloudformation delete --stack-name deploy
+## Delete CloudFormation stack
+aws cloudformation delete-stack --stack-name deploy
 ```
 
+---
 
-긴 글 끝까지 읽어주셔서 감사합니다, 질문은 이메일, 링크드인 메시지, [깃헙이슈](https://github.com/iamjaekim/iamjaekim.github.io/issues)로 열어주시면, 아는 한도내에서 답 해드리겠습니다!
+Thank you for reading to the end! If you have any questions, feel free to reach out via email, LinkedIn, or open a [GitHub issue](https://github.com/iamjaekim/iamjaekim.github.io/issues) — I'll do my best to help!
 
-오늘도 좋은 하루 되세요!
+Have a great day!

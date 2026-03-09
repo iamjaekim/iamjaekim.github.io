@@ -98,7 +98,7 @@ kramdown:
   syntax_highlighter_opts:
     css_class: "highlight"
     block:
-      line_numbers: true
+      line_numbers: false
 
 sass:
   style: compressed
