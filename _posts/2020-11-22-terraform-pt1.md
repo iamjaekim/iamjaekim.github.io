@@ -19,7 +19,7 @@ comments: true
 
 Hello Terraform?
 
-Hello, I'm Jaewook Kim. In this first post of my blog, I would like to introduce Terraform, a tool that is widely used these days.
+Hello, I'm Jae Wook Kim. In this first post of my blog, I would like to introduce Terraform, a tool that is widely used these days.
 
 ![terraform-logo](../images/terraform-color.svg){: width="100%" height="100%"}
 

@@ -18,7 +18,7 @@ comments: true
 
 Hello Terraform?
 
-Hello, I'm Jaewook Kim. Today's topic is the Terraform [Resource](https://www.terraform.io/docs/configuration/resources.html).
+Hello, I'm Jae Wook Kim. Today's topic is the Terraform [Resource](https://www.terraform.io/docs/configuration/resources.html).
 
 > The `Hello Terraform?` series is written to be easily understood by those who say, "I have at least managed resources in the cloud via CLI," as they move on to the next step.
 

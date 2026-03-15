@@ -21,7 +21,7 @@ comments: true
 
 Terraform v1.0 GA Release
 
-Hello, I'm Jaewook Kim. Today's topic is about Terraform 1.0.
+Hello, I'm Jae Wook Kim. Today's topic is about Terraform 1.0.
 This post is a paraphrased summary of key points from HashiCorp's blog post.
 
 > https://www.hashicorp.com/blog/announcing-hashicorp-terraform-1-0-general-availability

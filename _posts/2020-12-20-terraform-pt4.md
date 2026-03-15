@@ -19,7 +19,7 @@ comments: true
 
 Hello Terraform?
 
-Hello, I'm Jaewook Kim. Today's topic covers Terraform [Data Sources](https://www.terraform.io/docs/configuration/data-sources.html), [Locals](https://www.terraform.io/docs/configuration/locals.html), and [Outputs](https://www.terraform.io/docs/configuration/outputs.html).
+Hello, I'm Jae Wook Kim. Today's topic covers Terraform [Data Sources](https://www.terraform.io/docs/configuration/data-sources.html), [Locals](https://www.terraform.io/docs/configuration/locals.html), and [Outputs](https://www.terraform.io/docs/configuration/outputs.html).
 
 > The `Hello Terraform?` series is written to be easily understood by those who say, "I have at least managed resources in the cloud via CLI," as they move on to the next step.
 
