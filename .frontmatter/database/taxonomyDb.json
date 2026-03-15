@@ -1,1 +1,15 @@
-{"taxonomy":{"tags":["amplify","aws","cdk","hashicorp","infrastructure-as-code","jekyll","terraform","translation"],"categories":[]}}
+{
+    "taxonomy": {
+        "tags": [
+            "amplify",
+            "aws",
+            "cdk",
+            "hashicorp",
+            "infrastructure-as-code",
+            "jekyll",
+            "terraform",
+            "translation"
+        ],
+        "categories": []
+    }
+}
