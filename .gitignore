@@ -1,6 +1,23 @@
+# Jekyll build output
 _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
+
+# Ruby / Bundler
 vendor
-Gemfile.lock
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code / Front Matter CMS (editor tooling, not needed in repo)
+.frontmatter/
+frontmatter.json
+
+# Node (sample_project uses CDK/Node)
+node_modules/
+
+# Misc
+*.log
