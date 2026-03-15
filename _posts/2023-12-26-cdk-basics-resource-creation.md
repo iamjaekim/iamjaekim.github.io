@@ -27,7 +27,7 @@ Just like in the Terraform series, we will be creating a VPC resource this time 
 
 ## Preparation
 
-If you don't have the sample project created in the previous series, please [follow this post to create it.](https://iamjaekim.github.io/cdk-basics-typescript/#sample_project)
+If you don't have the sample project created in the previous series, please [follow this post to create it.]({% link _posts/2023-12-20-cdk-basics-typescript.md %}#sample_project)
 
 ## Exploring the Official CDK Documentation
 

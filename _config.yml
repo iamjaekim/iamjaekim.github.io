@@ -4,16 +4,17 @@
 
 title: Jae Wook Kim
 name: Jae Wook Kim
-description: Engineering Productivity Engineer – Cloud, IaC, and CI/CD
-tagline: Engineering Productivyt Engineer – Cloud, IaC, and CI/CD
+description: Engineering Productivity Engineer – Cloud, IaC, and CI/CD. Sharing insights on software engineering, cloud architecture, and productivity.
+tagline: Engineering Productivity Engineer – Cloud, IaC, and CI/CD
 author:
   name: Jae Wook Kim
   email: jaekim92@outlook.com
   url: https://iamjaekim.github.io
 
 avatar: images/default.svg
+logo: images/default.svg
 timezone: America/New_York
-lang: ko
+lang: en
 
 # URL settings
 url: https://iamjaekim.github.io

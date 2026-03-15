@@ -22,7 +22,7 @@ Hello, AWS CDK?
 
 Hello, I'm Jae Wook Kim. Today's topic is about Region and Account Bootstrapping in [CDK](https://docs.aws.amazon.com/cdk/latest/guide/home.html), another resource provisioning tool from AWS.
 
-This post is written so that you can follow along even if you haven't read the previous [Intro]({% link _posts/2021-09-18-cdk-pt1.md %}) and [Getting Started]({% link _posts/2023-12-20-cdk-pt2.md %}) posts. Also, please be aware that since this involves deploying cloud resources directly to AWS (like S3 buckets, IAM, etc.), it requires permissions in your AWS account and may incur **charges**.
+This post is written so that you can follow along even if you haven't read the previous [Intro]({% link _posts/2021-09-18-cdk-intro.md %}) and [Getting Started]({% link _posts/2023-12-20-cdk-basics-typescript.md %}) posts. Also, please be aware that since this involves deploying cloud resources directly to AWS (like S3 buckets, IAM, etc.), it requires permissions in your AWS account and may incur **charges**.
 
 ## CDK Bootstrap
 The [CDK Bootstrap](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html) (pronounced: bootstrap) process is an absolutely essential step before deploying a CDK application, and it only needs to be done once per region per account. For example, if you want to use the `us-east-1` and `us-west-2` regions, you must do it twice—once for each region.
