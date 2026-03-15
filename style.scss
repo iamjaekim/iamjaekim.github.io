@@ -630,6 +630,74 @@ pre {
 }
 
 /*****************/
+/* TAGS PAGE     */
+/*****************/
+
+.tags-page {
+  margin-top: 0.5rem;
+}
+
+.tag-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.tag-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: none;
+  padding: 0;
+  margin: 0 0 1rem;
+
+  .tag-count {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+}
+
+.tag-post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag-post-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.tag-post-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.tag-post-link {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+/*****************/
 /* PAGINATION    */
 /*****************/
 

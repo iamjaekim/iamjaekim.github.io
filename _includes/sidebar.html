@@ -13,7 +13,7 @@
       {% endfor %}
       {% assign sorted_tags = all_tags | sort %}
       {% for tag in sorted_tags %}
-        <span class="tag-pill">{{ tag }}</span>
+        <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag-pill">{{ tag }}</a>
       {% endfor %}
     </div>
   </div>
