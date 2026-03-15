@@ -1,7 +1,7 @@
 {% if page.tags.size > 0 %}
 <div class="post-tags">
 {% for tag in page.tags %}
-<span class="tag-pill">{{ tag }}</span>
+<a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag-pill">{{ tag }}</a>
 {% endfor %}
 </div>
 {% endif %}
