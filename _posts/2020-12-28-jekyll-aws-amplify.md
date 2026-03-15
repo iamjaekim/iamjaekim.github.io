@@ -21,7 +21,7 @@ comments: true
 
 ## Hello, AWS Amplify!
 
-Hi, I'm Jaewook Kim. Today's topic is hosting a Jekyll site with [AWS Amplify](https://aws.amazon.com/amplify/?nc=sn&loc=0).
+Hi, I'm Jae Wook Kim. Today's topic is hosting a Jekyll site with [AWS Amplify](https://aws.amazon.com/amplify/?nc=sn&loc=0).
 
 > This post is written for those who have at least some hands-on experience creating cloud resources via CLI.
 
