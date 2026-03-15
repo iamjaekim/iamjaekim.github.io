@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Terraform - Module
-description: Terraform Module을 사용해 인프라 코드를 재사용 가능한 단위로 구성하는 방법. 공식 모듈 레지스트리 활용법 포함. 시리즈 5편.
+description: How to use Terraform Modules to structure infrastructure code into reusable units. Includes how to leverage the official module registry. Part 5 of the series.
 date: 2020-12-30T00:00:00.000Z
 lastmod: 2026-02-23T05:42:07.076Z
 image: /images/default.svg
@@ -17,21 +17,21 @@ keywords:
 comments: true
 ---
 
-안녕 테라폼?
+Hello Terraform?
 
-안녕하세요, 김재욱입니다. 오늘의 주제는 테라폼 [Module - 모듈](https://www.terraform.io/docs/configuration/blocks/modules/index.html) 입니다.
+Hello, I'm Jaewook Kim. Today's topic is the Terraform [Module](https://www.terraform.io/docs/configuration/blocks/modules/index.html).
 
-> `안녕 테라폼?` 시리즈는 "나는 적어도 CLI로 클라우드에서 리소스 만져봤다" 하시는분들이 다음 과정으로 넘어가실 때 읽으시면, 이해되기 쉽게 작성해보려 합니다.
+> The `Hello Terraform?` series is written to be easily understood by those who say, "I have at least managed resources in the cloud via CLI," as they move on to the next step.
 
-테라폼 모듈은 앞서 소개했던 리소스, 아웃풋, 데이터, 로컬 등의 테라폼 리소스를 그룹지어서 한곳에 만들어 둔걸 뜻합니다. 이 빌딩 블럭들은, 내가 만든 나의 운영환경일수도 있고, 더 큰 리소스를 만들기 위해 뭉쳐놓은 여러가지의 다른 리소스일수도 있습니다. 모듈의 구분은 작성자 또는 소프트웨어 설계자가 생각하는 논리적인 계획에 의해 짜이는게 일반적입니다. 예를 들어 AWS에 EC2를 만들기 위해서는, vpc도 필요하고, subnet도 필요한 것처럼, 한 덩어리의 리소스를 들때 필요한 모든걸 작성한뒤, 해당 모듈을 사용하여 필요 파라미터를 넘겨주는것으로 모듈에서 구성한 리소스set을 만들수 있게 됩니다.
+Terraform Modules refer to groups of Terraform resources we previously discussed—such as resources, outputs, data sources, and locals—packaged together in one place. These building blocks can represent an operating environment you've created, or they can be a collection of various resources bundled to create a larger infrastructure piece. The division of modules is generally structured based on logical planning by the author or software architect. For instance, creating an EC2 instance in AWS requires a VPC and subnets; likewise, you define everything needed for a chunk of resources inside a module. Then, you simply call that module and pass the required parameters to create the entire resource set configured within.
 
-> 흡사 코딩에서 쓰는 class, function, def등 여러가지의 의미로 해석 될 수 있습니다.
+> They can be interpreted similarly to concepts like class, function, def, etc., used in programming.
 >
-> 키 포인트는 source를 통해 버전컨트롤이 되고, 다시 쓰일수 있고, 항상 정해진 리소스set만을 만듭니다.
+> The key point is that they are version-controlled via a source, reusable, and always reliably produce the defined set of resources.
 
-테라폼 모듈은 많은곳에 저장될수 있습니다. 로컬, 코드 리포지토리 (깃헙 등),HTTP(S), AWS S3, GCS Bucket등 많은 저장소들 모두 테라폼에 사용가능한 모듈 저장소 입니다. 그중 가장 사용하기 쉬운 저장소는 공식 [테라폼 레지스트리](https://registry.terraform.io/browse/modules)이며, 이곳에는, 많은 오픈소스 커뮤니티들이 운영중인 공식/비공식 모듈들이 호스팅이 되어있습니다. 대부분의 모듈들은 깃헙에 오픈소스로 제공되고 있으며, 원하면, 어떠한 코드로 어떻게 만들고, 현재 버그들은 어떤것이 있고, 버전히스토리 역시 모두 오픈이 되어 있습니다. 여러소스를 통해 필요 모듈들을 잘 조합해서 사용하면, 환경구성시간 또는 공부하는데 많은 도움이 될거라고 생각합니다.
+Terraform modules can be stored in many places. Local directories, code repositories (GitHub, etc.), HTTP(S) URLs, AWS S3, GCS Buckets—all of these are valid module repositories for Terraform. Among them, the easiest one to use is the official [Terraform Registry](https://registry.terraform.io/browse/modules). This registry hosts official and unofficial modules maintained by the open-source community. Most modules are provided as open source on GitHub, meaning you can inspect the code used to build them, check for current bugs, and review the entire version history. I believe properly combining necessary modules from various sources will greatly help in reducing environment setup time and serve as a good learning resource.
 
-모듈의 구성은 디렉토리로 시작됩니다. 아래의 디렉토리 구성을 예로 들어 설명을 하자면,
+Structuring a module starts with a directory. Taking the directory structure below as an example:
 ```
 .
 ├── ./main.tf
@@ -41,16 +41,16 @@ comments: true
     └── ./vpc-module/vpc.tf
 ```
 
-`./main.tf` 파일은 이 vpc모듈을 사용할 위치이며, 테라폼의 실행위치이기도 합니다. 로컬 모듈은 테라폼 실행위치를 기준으로 `relative path`를 사용하며, 리모트 모듈은 인터넷 또는 호스팅이 되어있는곳에서 다운로드 됩니다. 두가지형식의 모듈 모두 `terraform init`을 실행시 `.terraform` 폴더에 캐쉬로 만들어지며, 별다른 변동이 없는한, 다시 init을 다시하여도 .terraform에 남겨진 캐쉬를 사용하게 됩니다.
+`./main.tf` is where you use this vpc module, and it's also the execution directory for Terraform. Local modules use a `relative path` relative to Terraform's execution directory, while remote modules are downloaded from the internet or wherever they are hosted. For both types of modules, running `terraform init` caches them inside the `.terraform` folder. Unless there are changes, running `init` again will just use the cache left in `.terraform`.
 
-`./main.tf` 파일에서 모듈을 불러올 때엔, *`source`라는 파라미터*를 넘겨주어야 하며, 이 모듈이 정상적으로 작동하기 위해서는, 모듈에서 정의한 변수 (`variables.tf`)를 모두 파라미터로 넘겨주어야 모듈이 정상 작동을 하게 됩니다. 필요 파라미터를 넘겨주지 않을경우, *`terraform plan`과정에서 필수 변수 항목이 비었다고 에러메시지*를 밑과 비슷하게 띄우게 됩니다.
+When calling a module in the `./main.tf` file, you must pass the *`source` parameter*, and for this module to operate normally, you must provide all the variables defined within the module (`variables.tf`) as parameters. If you don't pass the required parameters, the *`terraform plan` process will output an error message stating that required variable inputs are missing*, looking similar to the one below.
 
 ![error-missing-variable](../images/2020-12-30-terraform-pt5/missing_variable.png){:class="img-responsive"}
 
-`./main.tf` 파일에서 vpc-module에 대한 변수를 파라미터로 넘겨줄시에도, 변수 사용이 충분히 가능합니다. 데이터, 로컬, 또는 다른 아웃풋을 변수로 지정해 파라미너로 넘겨주면, 테라폼 실행시, 자체적으로 변수변환과정을 거친후 알맞은 값을 해당 변수로 사용하게 됩니다.**(Pro Tip: 테라폼에서 값을 받는것과 프로바이더의 validation은 별개입니다. 예를 들어, CIDR를 필수로 하는값에 string 또는 number를 넘겨주게되면 프로바이더 validation에 fail함으로, api 에러메시지가 나오게 됩니다. 헷갈리지 않게 꼭 확인하시기 바랍니다!)**
+Even when passing variables as parameters to the vpc-module in `./main.tf`, you can certainly pass dynamic variables. If you specify `data`, `locals`, or other `outputs` as variables and pass them as parameters, Terraform will automatically process the variable transformations during execution and use the correct values. **(Pro Tip: Receiving values in Terraform and provider validations are two separate things. For example, if you pass a string or a generic number to a value that strictly requires a CIDR block, it will fail the provider validation, resulting in an API error message. Make sure to verify this so you don't get confused!)**
 
-모듈의 재밌는 점 하나는, 작성하는 로컬 모듈 안에서 리모트/로컬모듈 둘다 불러 nested 형태로 만들수 있다는 점 입니다. 이렇게 만들게 되면, 물론 state파일은 좀 더 복잡해진다는 단점이 있을수 있지만, 코드가 좀더 깔끔하고, 읽기 쉬운 형태로 작성이 되어지기 때문에 필요에 의해 여러 모듈을 조합하며 개발/운영환경에 맞게 IaC를 작성하면 조금 더 재미있게 테라폼작성을 하게 될 것입니다.
+One interesting aspect of modules is that inside a local module you are writing, you can call both remote and local modules to create nested setups. Doing this might make the state file a bit more complex, but the code becomes much cleaner and easier to read. Therefore, mixing and matching multiple modules as needed to write IaC tailored to your development/operations environment will make writing Terraform much more enjoyable.
 
-끝까지 읽어주셔서 감사합니다, 질문은 이메일, 링크드인 메시지, [깃헙이슈](https://github.com/iamjaekim/iamjaekim.github.io/issues)로 열어주시면, 아는 한도내에서 답 해드리겠습니다!
+Thank you for reading to the end. If you have any questions, feel free to contact me via email, LinkedIn messages, or open a [GitHub Issue](https://github.com/iamjaekim/iamjaekim.github.io/issues), and I will answer to the best of my knowledge!
 
-오늘도 좋은 하루 되세요!
+Have a great day!
