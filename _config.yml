@@ -113,7 +113,6 @@ plugins:
 
 paginate: 10
 paginate_path: "/page:num/"
-future: true
 
 # Exclude from build
 exclude:
