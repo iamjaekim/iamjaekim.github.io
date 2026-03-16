@@ -4,7 +4,7 @@ on:
   push:
     branches: ["main"]
   schedule:
-    - cron: "0 0 * * *"   # Rebuilds every day at midnight UTC
+    - cron: "0 13 * * *"   # 1 PM UTC / 9 AM Eastern (Runs after the post's 12:00 UTC timestamp)
   workflow_dispatch:
 
 permissions:
