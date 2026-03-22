@@ -9,7 +9,7 @@ Hello! My name is Jae Wook Kim. Welcome to my blog!
 
 I am a DevEx Engineer with a strong background in software development and developer experience. I am currently working at a company located in San Diego, California, USA. I am passionate about building scalable and efficient systems that enhance developer experience and streamline workflows.
 
-![Photo of Jae Wook  Kim](../images/self.jpeg){: width="30%" height="30%"}
+![Photo of Jae Wook  Kim](../images/profile.webp){: width="30%" height="30%"}
 
 ### Professional Experience in DevEx
 
