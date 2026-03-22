@@ -19,8 +19,8 @@
     }
   },
   "mounts": [
-    "source=${localEnv:HOME}/.aws,target=/home/node/.aws,type=bind,consistency=cached"
-
+    "source=${localEnv:HOME}/.aws,target=/home/node/.aws,type=bind,consistency=cached",
+    "source=sample-project-node-modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
   ],
   "remoteUser": "node",
 
