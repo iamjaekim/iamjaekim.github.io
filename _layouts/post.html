@@ -16,11 +16,7 @@ layout: default
             {{ page.date | date: "%B %d, %Y" }}
           </time>
         </span>
-        {% if page.lastmod %}
-        <span class="post-meta-item">
-          (Updated: <time datetime="{{ page.lastmod | date_to_xmlschema }}" itemprop="dateModified">{{ page.lastmod | date: "%B %d, %Y" }}</time>)
-        </span>
-        {% endif %}
+
       </div>
       {% if page.tags.size > 0 %}
       <div class="post-tags">
