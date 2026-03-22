@@ -14,6 +14,7 @@ keywords:
   - HashiCorp license change
   - should I switch to OpenTofu
   - Infrastructure as Code 2025
+lastmod: 2026-03-22T19:30:00.000Z
 comments: true
 ---
 
