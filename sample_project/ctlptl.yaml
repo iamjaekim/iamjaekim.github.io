@@ -1,0 +1,16 @@
+# ctlptl cluster configuration
+# Use 'ctlptl apply -f ctlptl.yaml' to stamp this cluster
+apiVersion: ctlptl.dev/v1alpha1
+kind: Cluster
+name: orbstack-cluster
+product: kind
+allowedContexts:
+  - kind-orbstack-cluster
+# Using OrbStack's Docker engine as the foundation
+# ctlptl will create a 'kind' cluster using 'orbstack' as the provider
+registry: orbstack-registry
+---
+apiVersion: ctlptl.dev/v1alpha1
+kind: Registry
+name: orbstack-registry
+port: 5005

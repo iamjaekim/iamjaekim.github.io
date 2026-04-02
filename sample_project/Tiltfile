@@ -1,0 +1,26 @@
+# Tiltfile for Sample Microservice
+# Documentation: https://docs.tilt.dev
+
+# 1. Provide the cluster configuration (optional if already running)
+# local_resource('ctlptl-apply', 'ctlptl apply -f ctlptl.yaml')
+
+# 2. Build the docker image
+# We use live_update to sync source code directly into the container
+# avoiding full image rebuilds and re-deploys.
+docker_build(
+  'sample-app-image',
+  './app',
+  dockerfile='./app/Dockerfile',
+  live_update=[
+    sync('./app/src', '/usr/src/app/src'),
+    sync('./app/package.json', '/usr/src/app/package.json'),
+    # Tilt automatically triggers code re-runs if sync happens
+    run('npm install', trigger=['./app/package.json']),
+  ]
+)
+
+# 3. Deploy the K8s manifests
+k8s_yaml(['./k8s/deployment.yaml', './k8s/service.yaml'])
+
+# 4. Port forward for local access
+k8s_resource('sample-app', port_forward=8080)
