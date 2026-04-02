@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'en' }}">
   <head>
-    <title>{% if page.title %}{{ page.title }} – {{ site.name }}{% else %}{{ site.name }} – {{ site.description }}{% endif %}</title>
+
 
     {% include favicon.html %}
     {% include meta.html %}
@@ -38,7 +38,7 @@
 
         <nav class="site-nav" role="navigation">
           <a href="{{ site.baseurl }}/" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
-          <a href="{{ site.baseurl }}/about" {% if page.url == '/about/' %}class="active"{% endif %}>About</a>
+          <a href="{{ site.baseurl }}/about/" {% if page.url == '/about/' %}class="active"{% endif %}>About</a>
           <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">
             <span class="theme-toggle-text">Dark Mode</span>
           </button>
