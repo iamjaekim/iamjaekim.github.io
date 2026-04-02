@@ -2,7 +2,7 @@
 layout: post
 title: "The Outer Loop: Lightning-Fast Local Kubernetes with Tilt & OrbStack"
 description: "How to move beyond Dev Containers and orchestrate your entire microservice ecosystem with the speed of OrbStack and the magic of Tilt."
-date: 2026-04-05T10:00:00.000Z
+date: 2026-04-02T10:00:00.000Z
 author: jaewookkim
 tags:
     - developer-experience
