@@ -65,7 +65,7 @@ With one command—`ctlptl apply -f ctlptl.yaml`—every developer on the team g
 
 ## Hands-on: The "Aha!" Moment with the Tiltfile
 
-Let's look at a real example in our [sample_project](file:///Users/jaewookkim/Desktop/code/iamjaekim.github.io/sample_project). We have a simple TypeScript Express API that we want to run in our cluster.
+Let's look at a real example in our [sample_project](https://github.com/iamjaekim/iamjaekim.github.io/tree/ad81f4ac976f79b4b35b645bc71113e5a252bb4e/sample_project). We have a simple TypeScript Express API that we want to run in our cluster.
 
 Instead of a complex script of `kubectl apply` commands, we use a **Tiltfile**:
 
@@ -115,7 +115,7 @@ Developer Experience isn't about making things "easy"; it's about making them **
 
 The best infrastructure is the kind you don't have to think about. 
 
-If you want to see the full code for this setup, check out the [sample_project](file:///Users/jaewookkim/Desktop/code/iamjaekim.github.io/sample_project) on my GitHub.
+If you want to see the full code for this setup, check out the [sample_project](https://github.com/iamjaekim/iamjaekim.github.io/tree/ad81f4ac976f79b4b35b645bc71113e5a252bb4e/sample_project) on my GitHub.
 
 Thanks for reading! Feel free to reach out on [LinkedIn](https://linkedin.com/in/iamjaekim) if you'd like to discuss how to optimize DevEx for your engineering team.
 
