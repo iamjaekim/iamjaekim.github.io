@@ -21,3 +21,6 @@ node_modules/
 
 # Misc
 *.log
+
+# Local drafting notes
+NEXT_TOPIC.md
