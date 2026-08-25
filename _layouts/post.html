@@ -3,39 +3,65 @@ layout: default
 ---
 
 <div class="content-grid">
-  <article class="content-main" itemscope itemtype="http://schema.org/BlogPosting">
-    <!-- Post Header -->
+  <article class="content-main" itemscope itemtype="https://schema.org/BlogPosting">
     <header class="post-header">
+      <nav class="post-breadcrumbs" aria-label="Breadcrumb">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <span aria-hidden="true">/</span>
+        {% if page.tags.first %}
+        <a href="{{ '/tags/' | relative_url }}#{{ page.tags.first | slugify }}">{{ page.tags.first }}</a>
+        {% endif %}
+      </nav>
       <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+      {% if page.description %}
+      <p class="post-dek" itemprop="description">{{ page.description }}</p>
+      {% endif %}
       <div class="post-meta">
-        <span class="post-meta-item" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="post-meta-item" itemprop="author" itemscope itemtype="https://schema.org/Person">
           <span itemprop="name">{{ site.author.name | default: "Jae Wook Kim" }}</span>
         </span>
         <span class="post-meta-item">
-          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-            {{ page.date | date: "%B %d, %Y" }}
-          </time>
+          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %d, %Y" }}</time>
         </span>
-
+        {% if page.lastmod %}
+        <span class="post-meta-item">
+          Updated <time datetime="{{ page.lastmod | date_to_xmlschema }}" itemprop="dateModified">{{ page.lastmod | date: "%B %d, %Y" }}</time>
+        </span>
+        {% endif %}
       </div>
       {% if page.tags.size > 0 %}
       <div class="post-tags">
         {% for tag in page.tags %}
-        <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag-pill">{{ tag }}</a>
+        <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag-pill">{{ tag }}</a>
         {% endfor %}
       </div>
       {% endif %}
     </header>
 
-    <!-- Post Body -->
     <div class="post-body" itemprop="articleBody">
       {{ content }}
     </div>
 
-    <!-- Post Footer -->
+    {% include related-posts.html %}
+
+    <nav class="post-navigation" aria-label="More articles">
+      {% if page.previous %}
+      <a class="post-navigation-item" href="{{ page.previous.url | relative_url }}">
+        <span>Previous</span>
+        <strong>{{ page.previous.title }}</strong>
+      </a>
+      {% endif %}
+      {% if page.next %}
+      <a class="post-navigation-item post-navigation-next" href="{{ page.next.url | relative_url }}">
+        <span>Next</span>
+        <strong>{{ page.next.title }}</strong>
+      </a>
+      {% endif %}
+    </nav>
+
     <footer class="post-footer">
       <div class="post-author-card">
-        <img class="post-author-avatar" src="{{ site.baseurl }}/{{ site.avatar }}" alt="{{ site.author.name }}">
+        <img class="post-author-avatar" src="{{ site.avatar | relative_url }}" alt="{{ site.author.name }}" width="48" height="48">
         <div class="post-author-info">
           <p class="author-name">{{ site.author.name | default: "Jae Wook Kim" }}</p>
           <p class="author-bio">{{ site.description }}</p>
@@ -43,7 +69,6 @@ layout: default
       </div>
     </footer>
 
-    <!-- Comments -->
     {% include comments.html %}
   </article>
 

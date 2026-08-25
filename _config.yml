@@ -4,8 +4,9 @@
 
 title: Jae Wook Kim
 name: Jae Wook Kim
-description: DevEx Engineer – Cloud, IaC, and CI/CD. Sharing insights on developer experience, cloud architecture, and productivity.
-tagline: DevEx Engineer – Cloud, IaC, and CI/CD
+description: Practical writing on developer experience, platform engineering, GitHub Actions, cloud infrastructure, and AI agents.
+tagline: DevEx, platform engineering, cloud, and CI/CD
+repository: iamjaekim/iamjaekim.github.io
 author:
   name: Jae Wook Kim
   email: jaekim92@outlook.com
@@ -16,16 +17,9 @@ logo: images/default.svg
 timezone: America/New_York
 lang: en
 
-# URL settings
 url: https://iamjaekim.github.io
 baseurl: ""
-
-# Clean URLs
 permalink: /:title/
-
-#
-# Social / Footer Links
-#
 
 footer-links:
   dribbble:
@@ -42,24 +36,17 @@ footer-links:
   youtube:
   googleplus:
 
-# Social links for SEO
 social:
   name: Jae Wook Kim
   links:
     - https://github.com/iamjaekim
     - https://www.linkedin.com/in/iamjaekim
 
-#
-# Google Integration
-#
-
 google_analytics: "G-MJT8MKP4BN"
 google_site_verification: "google8102e40b17e7e3da"
+webmaster_verifications:
+  google: "google8102e40b17e7e3da"
 
-#
-# Comments (Utterances – GitHub-based)
-# Set to false or remove to disable comments
-#
 comments:
   provider: utterances
   utterances:
@@ -67,10 +54,6 @@ comments:
     issue_term: pathname
     theme: github-light
     label: blog-comment
-
-#
-# SEO – jekyll-seo-tag configuration
-#
 
 twitter:
   card: summary
@@ -89,10 +72,6 @@ defaults:
     values:
       layout: page
 
-#
-# Build Settings
-#
-
 kramdown:
   input: GFM
   syntax_highlighter: rouge
@@ -104,7 +83,6 @@ kramdown:
 sass:
   style: compressed
 
-# Plugins (all GitHub Pages compatible)
 plugins:
   - jekyll-sitemap
   - jekyll-feed
@@ -114,7 +92,6 @@ plugins:
 paginate: 10
 paginate_path: "/page:num/"
 
-# Exclude from build
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -125,3 +102,4 @@ exclude:
   - node_modules/
   - frontmatter.json
   - POST_TEMPLATE.md
+  - scripts/

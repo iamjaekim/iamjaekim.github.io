@@ -1,0 +1,27 @@
+{% if page.tags.first %}
+  {% assign primary_tag = page.tags.first %}
+  {% assign candidates = site.tags[primary_tag] %}
+  {% assign shown = 0 %}
+  {% capture related_markup %}
+    {% for related in candidates %}
+      {% unless related.url == page.url %}
+        {% if shown < 3 %}
+          <li>
+            <a href="{{ related.url | relative_url }}">
+              <strong>{{ related.title }}</strong>
+              {% if related.description %}<span>{{ related.description }}</span>{% endif %}
+            </a>
+          </li>
+          {% assign shown = shown | plus: 1 %}
+        {% endif %}
+      {% endunless %}
+    {% endfor %}
+  {% endcapture %}
+  {% if shown > 0 %}
+  <aside class="related-posts" aria-labelledby="related-posts-title">
+    <p class="related-posts-kicker">Continue reading</p>
+    <h2 id="related-posts-title">More on {{ primary_tag | replace: '-', ' ' }}</h2>
+    <ul>{{ related_markup }}</ul>
+  </aside>
+  {% endif %}
+{% endif %}
