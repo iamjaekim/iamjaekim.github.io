@@ -86,11 +86,7 @@ sass:
 plugins:
   - jekyll-sitemap
   - jekyll-feed
-  - jekyll-paginate
   - jekyll-seo-tag
-
-paginate: 10
-paginate_path: "/page:num/"
 
 exclude:
   - Gemfile
