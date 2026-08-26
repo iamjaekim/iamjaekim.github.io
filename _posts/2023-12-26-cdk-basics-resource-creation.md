@@ -15,19 +15,19 @@ keywords:
   - VPC
   - TypeScript
   - cloud provisioning
-lastmod: 2026-02-23T05:40:51.931Z
+lastmod: 2026-08-26T09:45:00-04:00
 comments: true
 ---
 
 Hello, AWS CDK?
 
-Hello, I'm Jae Wook Kim. Today's topic involves creating our first resource using AWS's alternative resource provisioning tool, [CDK](https://docs.aws.amazon.com/cdk/latest/guide/home.html).  
+Hello, I'm Jae Wook Kim. Today's topic involves creating our first resource using AWS's alternative resource provisioning tool, [CDK](https://docs.aws.amazon.com/cdk/v2/guide/home.html).  
 
 Just like in the Terraform series, we will be creating a VPC resource this time as well. If you read through and follow along with this post, you will experience creating and deploying a resource to the cloud with AWS CDK.  
 
 ## Preparation
 
-If you don't have the sample project created in the previous series, please [follow this post to create it.]({% link _posts/2023-12-20-cdk-basics-typescript.md %}#sample_project)
+If you don't have the sample project created in the previous series, please [follow this post to create it.]({% link _posts/2023-12-20-cdk-basics-typescript.md %}#sample-project-setup)
 
 ## Exploring the Official CDK Documentation
 
@@ -37,7 +37,7 @@ Next, it's necessary to look at the official CDK documentation for the resource.
 
 ### Creating a VPC with Code
 
-After navigating to the [sample project](https://github.com/iamjaekim/github.io/tree/b4a4740773e27c4613e6262eef24c9de3f2eaecd/sample_project), open `lib/sample_project-stack.ts` and start writing code according to the existing TypeScript syntax.
+After navigating to the [sample project](https://github.com/iamjaekim/iamjaekim.github.io/tree/main/sample_project), open `lib/sample_project-stack.ts` and start writing code according to the existing TypeScript syntax.
 
 ```bash
 code path/to/sample_project/lib/sample_project-stack.ts # Open the stack file with vscode

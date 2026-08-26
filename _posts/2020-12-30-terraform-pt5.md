@@ -3,7 +3,7 @@ layout: post
 title: Terraform - Module
 description: How to use Terraform Modules to structure infrastructure code into reusable units. Includes how to leverage the official module registry. Part 5 of the series.
 date: 2020-12-30T00:00:00.000Z
-lastmod: 2026-02-23T05:42:07.076Z
+lastmod: 2026-08-26T09:45:00-04:00
 image: /images/default.svg
 tags:
   - terraform
@@ -19,7 +19,7 @@ comments: true
 
 Hello Terraform?
 
-Hello, I'm Jae Wook Kim. Today's topic is the Terraform [Module](https://www.terraform.io/docs/configuration/blocks/modules/index.html).
+Hello, I'm Jae Wook Kim. Today's topic is the Terraform [Module](https://developer.hashicorp.com/terraform/language/modules).
 
 > The `Hello Terraform?` series is written to be easily understood by those who say, "I have at least managed resources in the cloud via CLI," as they move on to the next step.
 

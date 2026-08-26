@@ -3,7 +3,7 @@ layout: post
 title: Terraform - Data, Local and Output
 description: How to write more flexible and reusable infrastructure code utilizing Terraform's Data Sources, Local variables, and Output values. Part 4 of the series.
 date: 2020-12-20T00:00:00.000Z
-lastmod: 2026-02-23T05:42:07.066Z
+lastmod: 2026-08-26T09:45:00-04:00
 image: /images/default.svg
 tags:
   - terraform
@@ -19,7 +19,7 @@ comments: true
 
 Hello Terraform?
 
-Hello, I'm Jae Wook Kim. Today's topic covers Terraform [Data Sources](https://www.terraform.io/docs/configuration/data-sources.html), [Locals](https://www.terraform.io/docs/configuration/locals.html), and [Outputs](https://www.terraform.io/docs/configuration/outputs.html).
+Hello, I'm Jae Wook Kim. Today's topic covers Terraform [Data Sources](https://developer.hashicorp.com/terraform/language/data-sources), [Locals](https://developer.hashicorp.com/terraform/language/values/locals), and [Outputs](https://developer.hashicorp.com/terraform/language/values/outputs).
 
 > The `Hello Terraform?` series is written to be easily understood by those who say, "I have at least managed resources in the cloud via CLI," as they move on to the next step.
 
@@ -56,7 +56,7 @@ data "aws_vpcs" "prod-vpcs" {
   }
 }
 ```
-This code block queries *all* VPCs with the `service: production` tag, stores them in an array format inside the variable `data.aws_vpcs.prod-vpcs`, and allows you to use them selectively using [basic Terraform functions](https://www.terraform.io/docs/configuration/functions.html) such as `loop` or `element` when needed.
+This code block queries *all* VPCs with the `service: production` tag, stores them in an array format inside the variable `data.aws_vpcs.prod-vpcs`, and allows you to use them selectively using [Terraform functions](https://developer.hashicorp.com/terraform/language/functions) such as `element` when needed.
 
 ---
 ## Local
@@ -86,7 +86,7 @@ resource "aws_subnet" "example" {
 
 This code block saves `tags` locally in the current execution environment. Not only basic strings, but `data` can also be saved in local variables. If used well, you can save all configuration locally and create actual resources relying entirely on the values stored in local variables.
 
-Among its many use cases, one very useful application is [applying tags to resources](https://www.terraform.io/docs/configuration/locals.html#when-to-use-local-values). It's recommended to use identically or similarly formatted values for consistency across resources, and when tagging via Terraform, this task becomes much easier.
+Among its many use cases, one very useful application is [applying consistent values such as tags](https://developer.hashicorp.com/terraform/language/values/locals). It's recommended to use identically or similarly formatted values for consistency across resources, and when tagging via Terraform, this task becomes much easier.
 
 By using the tags variable declared in `locals` and assigning it across multiple resources like this, you ensure every resource built by this Terraform code gets the exact same tags. Also, if tags need to be updated, that single update can be applied instantly to all generated resources simultaneously—a very handy advantage.
 
@@ -105,7 +105,7 @@ output "vpc_arn" {
 ```
 This code block is an example that queries `aws_vpc` via data and exposes the VPC's ARN outside. Once exposed, this VPC's ARN becomes accessible by other Terraform code and modules, allowing you to compose much more dynamic Terraform configurations.
 
-The biggest benefit of an output is precisely this cross-reference capability with other Terraform setups. [For example, in an environment utilizing multiple backend and state files where a VPC ARN is required, instead of writing new data blocks everywhere, you can simply load the data from the state file where the VPC ARN was exposed.](https://www.terraform.io/docs/providers/terraform/d/remote_state.html)
+The biggest benefit of an output is precisely this cross-reference capability with other Terraform setups. [For example, in an environment utilizing multiple backend and state files where a VPC ARN is required, instead of writing new data blocks everywhere, you can load an output from remote state.](https://developer.hashicorp.com/terraform/language/state/remote-state-data)
 
 So today, we went over Data, Local, and Output. The official Terraform documentation has more detailed examples and explanations, so it would be great to reference it while writing Terraform.
 

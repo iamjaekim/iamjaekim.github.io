@@ -3,7 +3,7 @@ layout: post
 title: Terraform - Provider
 description: Part 2 of the series, explaining what a Terraform Provider is and how to configure and use the AWS Provider with examples.
 date: 2020-11-27T00:00:00.000Z
-lastmod: 2026-02-23T05:42:07.055Z
+lastmod: 2026-08-26T09:45:00-04:00
 image: /images/default.svg
 tags:
   - terraform
@@ -18,7 +18,7 @@ comments: true
 
 Hello Terraform?
 
-Hello, I'm Jae Wook Kim. Today's topic is the Terraform [Provider](https://www.terraform.io/docs/providers/index.html).
+Hello, I'm Jae Wook Kim. Today's topic is the Terraform [Provider](https://developer.hashicorp.com/terraform/language/providers).
 
 > The `Hello Terraform?` series is written to be easily understood by those who say, "I have at least managed resources in the cloud via CLI," as they move on to the next step.
 
@@ -35,7 +35,7 @@ For example:
 
 Terraform is managed by HashiCorp, but the case is different for providers. Most providers are open-source, and anyone can participate in fixing bugs, creating new features, and contributing to building better providers.
 
-The list of providers currently supported by Terraform can be found [here](https://registry.terraform.io/browse/providers) and [here](https://www.terraform.io/docs/providers/type/community-index.html) (note: documentation links have evolved, now pointing primarily to the Terraform Registry). By using these built providers alongside Terraform, you can create resources on various platforms.
+The list of providers currently supported by Terraform can be found in the [Terraform Registry](https://registry.terraform.io/browse/providers). The [provider documentation](https://developer.hashicorp.com/terraform/language/providers) explains the official, partner, community, and archived provider tiers. By using these providers alongside Terraform, you can create resources on various platforms.
 
 _Each Terraform Provider is an independent project and community, so their completeness, maturity, and participation levels may vary._
 
