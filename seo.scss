@@ -3,44 +3,44 @@
 
 .home-intro {
   max-width: 760px;
-  padding: 2rem 0 3rem;
+  padding: 1.5rem 0 2.25rem;
 }
 
 .home-eyebrow,
 .related-posts-kicker {
-  margin: 0 0 .75rem;
+  margin: 0 0 .6rem;
   color: var(--accent);
-  font-size: .78rem;
+  font-size: .76rem;
   font-weight: 700;
-  letter-spacing: .1em;
+  letter-spacing: .09em;
   text-transform: uppercase;
 }
 
 .home-intro h1 {
-  max-width: 18ch;
+  max-width: 25ch;
   margin: 0;
-  font-size: clamp(2.25rem, 6vw, 4rem);
-  line-height: 1.04;
-  letter-spacing: -.045em;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -.035em;
   text-wrap: balance;
 }
 
 .home-summary {
   max-width: 62ch;
-  margin: 1.5rem 0;
+  margin: 1rem 0 1.25rem;
   color: var(--text-secondary);
-  font-size: 1.2rem;
-  line-height: 1.65;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 .topic-links {
   display: flex;
   flex-wrap: wrap;
-  gap: .6rem 1.1rem;
+  gap: .5rem 1rem;
 }
 
 .topic-links a {
-  font-size: .9rem;
+  font-size: .88rem;
   font-weight: 600;
 }
 
@@ -162,7 +162,8 @@
 .tag-post-item p { margin: .2rem 0 0; color: var(--text-muted); font-size: .85rem; line-height: 1.45; }
 
 @media (max-width: 640px) {
-  .home-intro { padding-top: .75rem; }
+  .home-intro { padding: .75rem 0 1.75rem; }
+  .home-intro h1 { font-size: 2rem; }
   .post-navigation { grid-template-columns: 1fr; gap: 1.5rem; }
   .post-navigation-next { grid-column: 1; text-align: left; }
   .tag-post-item { align-items: flex-start; flex-direction: column; gap: .2rem; }
